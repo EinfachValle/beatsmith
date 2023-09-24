@@ -1,2 +1,2 @@
-# majorcloud
+# BeatSmith
 Majorcloud is an app for music guys...
