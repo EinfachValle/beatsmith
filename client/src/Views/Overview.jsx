@@ -1,4 +1,4 @@
-function Home() {
+function Overview() {
   return (
     <div>
       <h1>Hey was geht ab bro</h1>
@@ -7,4 +7,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Overview;

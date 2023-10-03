@@ -1,0 +1,34 @@
+{
+  "background_color": "#212226",
+  "description": "Eine Beschreibung deiner App/Website",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "48x48",
+      "src": "img/favicon/favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
+      "sizes": "32x32",
+      "src": "img/favicon/favicon-32x32.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "16x16",
+      "src": "img/favicon/favicon-16x16.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "144x144",
+      "src": "img/favicon/apple-touch-icon.png",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en",
+  "name": "BeatSmith",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "short_name": "BeatSmith",
+  "start_url": "/",
+  "theme_color": "#f6f6f6"
+}

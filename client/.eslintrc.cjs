@@ -27,6 +27,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-filename-extension": ["warn", { extensions: [".js", ".jsx"] }],
     "no-unused-vars": "warn",
+    "no-undef": "off",
     "no-console": "off",
     "react/jsx-no-target-blank": "off",
   },

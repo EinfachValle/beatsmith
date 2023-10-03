@@ -1,22 +1,33 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Fragment } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { CONTEXT_PATH } from "./utils/constant";
 import { ColorModeContext, useMode } from "./core/theme";
+import history from "./utils/history";
 import AppRoutes from "./AppRoutes";
+import { CONTEXT_PATH } from "./utils/constant";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import "./App.scss";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [theme, toggleColorMode] = useMode();
 
   return (
     <ColorModeContext.Provider value={toggleColorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter basename={CONTEXT_PATH}>
-          <div className="App" id="App">
-            <AppRoutes />
-          </div>
-        </BrowserRouter>
-      </ThemeProvider>
+      <Fragment>
+        <DndProvider backend={HTML5Backend}>
+          <ToastContainer />
+          <BrowserRouter basename={CONTEXT_PATH} history={history}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <div className="App" id="App">
+                <AppRoutes />
+              </div>
+            </ThemeProvider>
+          </BrowserRouter>
+        </DndProvider>
+      </Fragment>
     </ColorModeContext.Provider>
   );
 }
