@@ -3,7 +3,7 @@
     "allowJs": true,
     "baseUrl": "./",
     "esModuleInterop": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "module": "esnext",
     "moduleResolution": "node",

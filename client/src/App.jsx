@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { ColorModeContext, useMode } from "./core/theme";
 import history from "./utils/history";
 import AppRoutes from "./AppRoutes";
@@ -18,14 +18,14 @@ function App() {
       <Fragment>
         <DndProvider backend={HTML5Backend}>
           <ToastContainer />
-          <BrowserRouter basename={CONTEXT_PATH} history={history}>
+          <Router basename={CONTEXT_PATH} history={history}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
               <div className="App" id="App">
                 <AppRoutes />
               </div>
             </ThemeProvider>
-          </BrowserRouter>
+          </Router>
         </DndProvider>
       </Fragment>
     </ColorModeContext.Provider>

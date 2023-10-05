@@ -2,12 +2,18 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { Fragment, useEffect, Suspense } from "react";
 
-import { Routes, Route } from "react-router-dom";
-
-import LoaderWithBackdrop from "./components/shared/UI/LoaderWithBackdrop/LoaderWithBackdrop";
+import { Switch, Route, Redirect } from "react-router-dom";
+import LoaderWithBackdrop from "./components/shared/UI/LoaderWithBackdrop";
 
 const V2PrivateRoutes = React.lazy(() => import("./V2PrivateRoutes"));
-const Overview = React.lazy(() => import("./Views/Overview"));
+
+// layouts:
+
+const ErrorPageLayout = React.lazy(() => import("./layouts/ErrorPageLayout"));
+
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+
+const OverviewLayout = React.lazy(() => import("./layouts/OverviewLayout"));
 
 const StorybookRoute = () => {
   useEffect(() => {
@@ -30,20 +36,23 @@ const appRoutes = (props) => {
 
   allowedRoutes = (
     <Fragment>
-      <Suspense fallback={<LoaderWithBackdrop />}>
-        <Routes>
+      <Suspense fallback={<LoaderWithBackdrop style={{ margin: "auto" }} />}>
+        <Switch>
           {isDevelop && (
             <Route path="/storybook">
               <StorybookRoute />
             </Route>
           )}
-          <Route exact path="/" Component={V2PrivateRoutes} />
-        </Routes>
-        <Route exact path="/" render={(props) => <Overview {...props} />} />
+          <Route path="/error" component={ErrorPageLayout} />
+          <Route path="/auth" component={AuthLayout} />
+          <Route exact path="/overview" component={OverviewLayout} />
+          {/* <Route path="/" component={V2PrivateRoutes} /> */}
+          <Route path="/" component={() => <Redirect to="/overview" />} />
+        </Switch>
+        {/* <Route exact path="/" render={(props) => <Login {...props} />} /> */}
       </Suspense>
     </Fragment>
   );
-
   return allowedRoutes;
 };
 

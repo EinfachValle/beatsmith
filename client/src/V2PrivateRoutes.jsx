@@ -1,11 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { Fragment, Suspense } from "react";
 
-import { Routes, Route } from "react-router-dom";
-import LoaderWithBackdrop from "./components/shared/UI/LoaderWithBackdrop/LoaderWithBackdrop";
+import { Switch, Redirect } from "react-router-dom";
+import LoaderWithBackdrop from "./components/shared/UI/LoaderWithBackdrop";
 
 const PrivateRoute = React.lazy(() =>
   import("./components/privateRoute/PrivateRoute")
 );
+
+// layouts:
+
+const AppLayout = React.lazy(() => import("./layouts/AppLayout"));
+
+const BackofficeLayout = React.lazy(() => import("./layouts/BackofficeLayout"));
 
 /**
  *
@@ -13,21 +20,17 @@ const PrivateRoute = React.lazy(() =>
  * Do all the Routes related implementation in this component
  */
 
-const V2PrivateRoutes = () => {
+const V2PrivateRoutes = (props) => {
   let allowedRoutes = null;
 
   allowedRoutes = (
     <Fragment>
-      <Suspense fallback={<LoaderWithBackdrop />}>
-        <Routes>
-          <Route
-            path="/device-client/configure"
-            component={DeviceClientConfigure}
-          />
-          <PrivateRoute path="/sessions" component={HomeLayout} />
-          <PrivateRoute path="/backoffice" component={PlatformLayout} />
-          <PrivateRoute path="/" component={PlatformLayout} />
-        </Routes>
+      <Suspense fallback={<LoaderWithBackdrop style={{ margin: "auto" }} />}>
+        <Switch>
+          <PrivateRoute path="/app" component={AppLayout} />
+          <PrivateRoute path="/backoffice" component={BackofficeLayout} />
+          <PrivateRoute path="/" component={() => <Redirect to="/error" />} />
+        </Switch>
       </Suspense>
     </Fragment>
   );

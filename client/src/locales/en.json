@@ -1,5 +1,10 @@
 {
-  "Home": {
-    "title": "title"
+  "Overview": {
+    "mainMenu": {
+      "About": "About BeatSmith",
+      "Benefits": "Benefits",
+      "Pricing": "Pricing",
+      "Team": "Team"
+    }
   }
 }
