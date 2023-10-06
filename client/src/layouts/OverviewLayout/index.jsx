@@ -17,29 +17,25 @@ const PricingOverviewPage = React.lazy(() =>
 );
 const TeamOverviewPage = React.lazy(() => import("../../Views/Overview/Team"));
 
-const drawerWidth = 200;
+const drawerHeight = 200;
 
 const useStyles = makeStyles(() => ({
   root: {
+    width: "100%",
+    height: "100%",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     flex: 1,
-    background: "#F4F5F6",
-  },
-  header: {
-    display: "flex",
-    height: 50,
   },
   drawer: {
-    height: drawerWidth,
+    height: drawerHeight,
     flexShrink: 0,
   },
   content: {
     display: "flex",
-    flexDirection: "column",
-    flexGrow: 1,
-    // padding: theme.spacing(5),
-    marginTop: drawerWidth,
+    flexDirection: "row",
+    // flexGrow: 1,
+    marginTop: drawerHeight,
   },
 }));
 
@@ -55,11 +51,11 @@ function OverviewLayout() {
       <Box className={classes.content}>
         <Suspense fallback={<CircularLoader style={{ margin: "auto" }} />}>
           <Switch>
-            <Route
+            {/* <Route
               exact
               path="/overview"
               render={(props) => <AboutOverviewPage {...props} />}
-            />
+            /> */}
             <Route exact path="/overview/about" component={AboutOverviewPage} />
             <Route
               exact

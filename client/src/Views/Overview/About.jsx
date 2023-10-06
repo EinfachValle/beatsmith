@@ -1,11 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo } from "react";
 import {
   Paper,
   Box,
-  Button,
-  TextField,
-  InputAdornment,
+  // Button,
+  // TextField,
+  // InputAdornment,
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -51,7 +51,9 @@ export default memo(function AboutOverviewPage() {
   return (
     <ThemeProvider theme={theme}>
       <Paper className={classes.fullPage} square>
-        <Typography>Test Value</Typography>
+        <Box>
+          <Typography>Test About</Typography>
+        </Box>
       </Paper>
     </ThemeProvider>
   );

@@ -7,7 +7,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useLocation, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { appScrollBar } from "@/utils/cssUtils";
 
 import InfoIcon from "@mui/icons-material/Info";
 import StarIcon from "@mui/icons-material/Star";
@@ -70,7 +69,6 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#FFF",
     borderRight: "1px solid #e5e8ec",
     borderTop: "1px solid #e5e8ec",
-    ...appScrollBar,
   },
   menuItem: {
     color: "#576883",
